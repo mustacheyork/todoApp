@@ -10,10 +10,10 @@ import Foundation
 import FirebaseDatabase
 
 class Todo {
-  var ref: FIRDatabaseReference?
+  var ref: DatabaseReference?
   var title: String?
   
-  init (snapshot: FIRDataSnapshot) {
+  init (snapshot: DataSnapshot) {
     ref = snapshot.ref
     
     let data = snapshot.value as! Dictionary<String, String>

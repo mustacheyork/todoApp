@@ -14,8 +14,8 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   // Todoモデルのインスタンス生成
   var TodoLists = [Todo]()
   // Firebaseのインスタンス生成
-  var ref: FIRDatabaseReference!
-  private var databaseHandle: FIRDatabaseHandle!
+  var ref: DatabaseReference!
+  private var databaseHandle: DatabaseHandle!
   
   @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     tableView.dataSource = self
     
     // Firebaseのインスタンスを作成
-    ref = FIRDatabase.database().reference()
+    ref = Database.database().reference()
     
     // Databaseの監視を開始
     startObservingDatabase()
@@ -101,7 +101,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
 
       for todoSnapShot in snapshot.children {
         // 最新のデータを取得
-        let todo = Todo(snapshot: todoSnapShot as! FIRDataSnapshot)
+        let todo = Todo(snapshot: todoSnapShot as! DataSnapshot)
         // 新しいTodoリストを作成
         newTodoLists.append(todo)
       }
