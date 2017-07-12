@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +19,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    FirebaseApp.configure()
-    
+//    FirebaseApp.configure()
+//    if Auth.auth().currentUser != nil {
+//      // User is signed in.
+//      // ...
+//    } else {
+//      //windowを生成
+//      self.window = UIWindow(frame: UIScreen.main.bounds)
+//      //Storyboardを指定
+//      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//      //Viewcontrollerを指定
+//      let initialViewController = storyboard.instantiateViewController(withIdentifier: "SighIn")
+//      //rootViewControllerに入れる
+//      self.window?.rootViewController = initialViewController
+//      //表示
+//      self.window?.makeKeyAndVisible()
+//    }
+//    
     return true
   }
 

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource  {
-
+  
   // Todoモデルのインスタンス生成
   var TodoLists = [Todo]()
   // Firebaseのインスタンス生成
@@ -18,10 +18,18 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   private var databaseHandle: DatabaseHandle!
   
   @IBOutlet weak var tableView: UITableView!
-    
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
+    FirebaseApp.configure()
+    if Auth.auth().currentUser != nil {
+      // User is signed in.
+     
+    } else {
+      performSegue(withIdentifier: "goSignIn", sender: nil)
+    }
     
     // Delegateの通知先を指定
     tableView.delegate = self
@@ -34,12 +42,12 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     // Databaseの監視を開始
     startObservingDatabase()
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
+  
   // 追加をタップしてTodoを追加
   @IBAction func didTapAddTodo(_ sender: Any) {
     // Todoを入力するダイアログを生成
@@ -63,7 +71,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     // ダイアログを表示
     present(dialog, animated: true, completion: nil);
   }
-
+  
   // Cellの総数を返すdatasourceメソッド、設定必須
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return TodoLists.count
@@ -98,7 +106,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     databaseHandle = self.ref.child("users/01/todolists").observe(.value, with: { (snapshot) in
       // Todoリストのインスタンスを作成
       var newTodoLists = [Todo]()
-
+      
       for todoSnapShot in snapshot.children {
         // 最新のデータを取得
         let todo = Todo(snapshot: todoSnapShot as! DataSnapshot)
@@ -111,6 +119,16 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
       self.tableView.reloadData()
     })
   }
+  
+  @IBAction func didTapSignOut(_ sender: Any) {
+    do {
+      try Auth.auth().signOut()
+      performSegue(withIdentifier: "goSignIn", sender: nil)
+    } catch let error {
+      assertionFailure("Error signing out: \(error)")
+    }
+  }
+  
   
   // observeの終了処理
   deinit {

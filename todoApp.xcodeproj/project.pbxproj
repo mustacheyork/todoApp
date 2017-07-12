@@ -15,6 +15,8 @@
 		825AEF0E1F1010DB00FFBAE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 825AEF0D1F1010DB00FFBAE0 /* Assets.xcassets */; };
 		825AEF111F1010DB00FFBAE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825AEF0F1F1010DB00FFBAE0 /* LaunchScreen.storyboard */; };
 		825AEF191F10110300FFBAE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 825AEF181F10110300FFBAE0 /* GoogleService-Info.plist */; };
+		8262CC7B1F12802300635BEB /* SighInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262CC7A1F12802300635BEB /* SighInViewController.swift */; };
+		8262CC7D1F15271700635BEB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262CC7C1F15271700635BEB /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		825AEF101F1010DB00FFBAE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		825AEF121F1010DB00FFBAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825AEF181F10110300FFBAE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8262CC7A1F12802300635BEB /* SighInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SighInViewController.swift; sourceTree = "<group>"; };
+		8262CC7C1F15271700635BEB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9D5F091CC2B725C3A2371CC2 /* Pods-todoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoApp/Pods-todoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B7B0C2BD2560A210167A7EF8 /* Pods-todoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-todoApp/Pods-todoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CBDEBE714C9B851E6A76930C /* Pods_todoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				825AEF061F1010DB00FFBAE0 /* AppDelegate.swift */,
+				8262CC7A1F12802300635BEB /* SighInViewController.swift */,
+				8262CC7C1F15271700635BEB /* SignUpViewController.swift */,
 				825AEF081F1010DB00FFBAE0 /* ViewController.swift */,
 				825AEF0A1F1010DB00FFBAE0 /* Main.storyboard */,
 				825AEF0D1F1010DB00FFBAE0 /* Assets.xcassets */,
@@ -191,10 +197,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-todoApp/Pods-todoApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +234,9 @@
 			files = (
 				825AEF091F1010DB00FFBAE0 /* ViewController.swift in Sources */,
 				821298471F102F4A00BB4FD2 /* Todo.swift in Sources */,
+				8262CC7B1F12802300635BEB /* SighInViewController.swift in Sources */,
 				825AEF071F1010DB00FFBAE0 /* AppDelegate.swift in Sources */,
+				8262CC7D1F15271700635BEB /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
