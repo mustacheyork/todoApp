@@ -16,11 +16,11 @@
 		825AEF111F1010DB00FFBAE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 825AEF0F1F1010DB00FFBAE0 /* LaunchScreen.storyboard */; };
 		825AEF191F10110300FFBAE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 825AEF181F10110300FFBAE0 /* GoogleService-Info.plist */; };
 		8262CC7B1F12802300635BEB /* SighInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262CC7A1F12802300635BEB /* SighInViewController.swift */; };
-		8262CC7D1F15271700635BEB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262CC7C1F15271700635BEB /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		821298461F102F4A00BB4FD2 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		82520A861F1694A500A0693F /* todoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = todoApp.entitlements; sourceTree = "<group>"; };
 		825AEF031F1010DB00FFBAE0 /* todoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		825AEF061F1010DB00FFBAE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		825AEF081F1010DB00FFBAE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,7 +30,6 @@
 		825AEF121F1010DB00FFBAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825AEF181F10110300FFBAE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8262CC7A1F12802300635BEB /* SighInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SighInViewController.swift; sourceTree = "<group>"; };
-		8262CC7C1F15271700635BEB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9D5F091CC2B725C3A2371CC2 /* Pods-todoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-todoApp/Pods-todoApp.release.xcconfig"; sourceTree = "<group>"; };
 		B7B0C2BD2560A210167A7EF8 /* Pods-todoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-todoApp/Pods-todoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CBDEBE714C9B851E6A76930C /* Pods_todoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_todoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,9 +77,9 @@
 		825AEF051F1010DB00FFBAE0 /* todoApp */ = {
 			isa = PBXGroup;
 			children = (
+				82520A861F1694A500A0693F /* todoApp.entitlements */,
 				825AEF061F1010DB00FFBAE0 /* AppDelegate.swift */,
 				8262CC7A1F12802300635BEB /* SighInViewController.swift */,
-				8262CC7C1F15271700635BEB /* SignUpViewController.swift */,
 				825AEF081F1010DB00FFBAE0 /* ViewController.swift */,
 				825AEF0A1F1010DB00FFBAE0 /* Main.storyboard */,
 				825AEF0D1F1010DB00FFBAE0 /* Assets.xcassets */,
@@ -135,7 +134,13 @@
 				TargetAttributes = {
 					825AEF021F1010DB00FFBAE0 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 69U32QXGLT;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -199,11 +204,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-todoApp/Pods-todoApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -236,7 +243,6 @@
 				821298471F102F4A00BB4FD2 /* Todo.swift in Sources */,
 				8262CC7B1F12802300635BEB /* SighInViewController.swift in Sources */,
 				825AEF071F1010DB00FFBAE0 /* AppDelegate.swift in Sources */,
-				8262CC7D1F15271700635BEB /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +368,12 @@
 			baseConfigurationReference = B7B0C2BD2560A210167A7EF8 /* Pods-todoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = todoApp/todoApp.entitlements;
+				DEVELOPMENT_TEAM = 69U32QXGLT;
 				INFOPLIST_FILE = todoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners.todoApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ticklecode.todoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -375,9 +384,12 @@
 			baseConfigurationReference = 9D5F091CC2B725C3A2371CC2 /* Pods-todoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = todoApp/todoApp.entitlements;
+				DEVELOPMENT_TEAM = 69U32QXGLT;
 				INFOPLIST_FILE = todoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners.todoApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ticklecode.todoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

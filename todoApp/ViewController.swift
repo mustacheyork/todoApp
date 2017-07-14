@@ -16,6 +16,9 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   // Firebaseのインスタンス生成
   var ref: DatabaseReference!
   private var databaseHandle: DatabaseHandle!
+
+  // FirebaseのID
+  var uid = ""
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -23,12 +26,13 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    FirebaseApp.configure()
-    if Auth.auth().currentUser != nil {
-      // User is signed in.
-     
-    } else {
+    // ユーザ情報を取得
+    let user = Auth.auth().currentUser
+    
+    if user == nil {
       performSegue(withIdentifier: "goSignIn", sender: nil)
+    } else {
+      uid = (user?.uid)!
     }
     
     // Delegateの通知先を指定
@@ -52,6 +56,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   @IBAction func didTapAddTodo(_ sender: Any) {
     // Todoを入力するダイアログを生成
     let dialog = UIAlertController(title: "To Do App", message: "やること", preferredStyle: .alert)
+    
     // OKボタンの生成
     let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
       // 入力されたテキストを保持
@@ -62,7 +67,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
         return
       }
       // Databaseにデータ更新
-      self.ref.child("users").child("01").child("todolists").childByAutoId().child("title").setValue(userInput)
+      self.ref.child("users").child(self.uid).child("todolists").childByAutoId().child("title").setValue(userInput)
     }
     // ダイアログをリセット
     dialog.addTextField(configurationHandler: nil)
@@ -103,7 +108,7 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
   // 監視をスタートさせるメソッド
   func startObservingDatabase () {
     // Databaseに変更があれば実行される
-    databaseHandle = self.ref.child("users/01/todolists").observe(.value, with: { (snapshot) in
+    databaseHandle = self.ref.child("users/\(self.uid)/todolists").observe(.value, with: { (snapshot) in
       // Todoリストのインスタンスを作成
       var newTodoLists = [Todo]()
       
@@ -129,10 +134,9 @@ class ViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSour
     }
   }
   
-  
   // observeの終了処理
   deinit {
-    self.ref.child("users/01/todolist").removeObserver(withHandle: databaseHandle)
+    self.ref.child("users/\(self.uid)/todolist").removeObserver(withHandle: databaseHandle)
   }
   
 }
